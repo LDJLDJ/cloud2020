@@ -13,8 +13,11 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 public class OrderController {
+//单机版
+//    public static final String PAYMENT_URL = "http://localhost:8001";
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //集群版，存在8001，8002两个卖家端，直接托管给Eureka去选择服务名称进行选择还需要在RestTemplate添加@LoadBalanced
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
